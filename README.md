@@ -1,6 +1,6 @@
 # Bee-Project
 
-This repository is the implementation of Developing an AI-based Integrated System for Bee Health Evaluation (https://arxiv.org/abs/2401.09988)
+This repository is the implementation of [Developing an AI-based Integrated System for Bee Health Evaluation] (https://arxiv.org/abs/2401.09988)
 Andrew Liang
 
 Bees pollinate over 80% of plants, but bee colonies have been experiencing a devastating 39.7% annual loss over the past 11 years. 
