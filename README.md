@@ -3,6 +3,9 @@
 This repository is the implementation of [Developing an AI-based Integrated System for Bee Health Evaluation] (https://arxiv.org/abs/2401.09988)
 Andrew Liang
 
+This repository is the implementation of [Developing an AI-based Integrated System for Bee Health Evaluation](https://arxiv.org/abs/2401.09988) by Andrew Liang.
+
+
 Bees pollinate over 80% of plants, but bee colonies have been experiencing a devastating 39.7% annual loss over the past 11 years. 
 
 To address this pressing issue, I collected the paired data from three apiaries in California and developed an innovative end-to-end deep learning-based system. This end-to-end solution includes 
