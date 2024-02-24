@@ -36,6 +36,7 @@ The code can be found in Bee_Image_Health_Assessment_CNN.ipynb and Bee_Image_Hea
 ## Bee Audio Health Assessment
 
 1D CNN, 2D CNN, LSTM, and VGG16 models were also developed for bee health classification through audio analysis.
+
 The code can be found in Bee_Audio_Health_Assessment_1D_CNN.ipynb and Bee_Audio_Health_Assessment_2D_CNN_LSTM.ipynb.
 
 ## Attention-based Multimodal Neural Network (AMNN)
