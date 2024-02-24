@@ -3,17 +3,20 @@
 This repository is the implementation of [Developing an AI-based Integrated System for Bee Health Evaluation](https://arxiv.org/abs/2401.09988) by Andrew Liang.
 
 
-Bees pollinate over 80% of plants, but bee colonies have been experiencing a devastating 39.7% annual loss over the past 11 years. 
+Honey bees pollinate about one-third of the world's food supply, but bee colonies have alarmingly declined by nearly 40% over the past decade due to several factors, including pesticides and pests. 
 
-To address this pressing issue, I collected the paired data from three apiaries in California and developed an innovative end-to-end deep learning-based system. This end-to-end solution includes 
+Traditional methods for monitoring beehives, such as human inspection, are subjective, disruptive, and time-consuming. To overcome these limitations, artificial intelligence has been used to assess beehive health. However, previous studies have lacked an end-to-end solution and primarily relied on data from a single source, either bee images or sounds. 
+
+This study introduces a comprehensive system consisting of bee object detection and health evaluation. Additionally, it utilized a combination of visual and audio signals to analyze bee behaviors. An Attention-based Multimodal Neural Network (AMNN) was developed to adaptively focus on key features from each type of signal for accurate bee health assessment. By seamlessly integrating AMNN with image and sound data in a comprehensive bee health monitoring system, this approach provides a more efficient and non-invasive solution for the early detection of bee diseases and the preservation of bee colonies.
+
+This end-to-end solution includes 
 
 1. Data acquisition and annotation for model development 
 2. Bee object detection to detect bee presence in images and audio clips
 3. Bee health assessment to assess bee health in images and audio clips
-4. Multi-modal Visual-Audio Deep Neural Network to combine both visual and audio signals to assess beehives’ health
-5. Web app deployment with near real-time streaming and bee health classification
+4. A multi-modal visual-audio deep neural network that combines both visual and audio signals to assess the health of beehives
 
-The system is the first to integrate bee health assessment with bee object detection using paired image and audio data in research.
+The system is the first to integrate bee health assessment with bee object detection using paired image and audio data.
 
 ## Bee Images Object Detection
 
