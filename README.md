@@ -7,7 +7,7 @@ Honey bees pollinate about one-third of the world's food supply, but bee colonie
 
 Traditional methods for monitoring beehives, such as human inspection, are subjective, disruptive, and time-consuming. To overcome these limitations, artificial intelligence has been used to assess beehive health. However, previous studies have lacked an end-to-end solution and primarily relied on data from a single source, either bee images or sounds. 
 
-This study introduced a comprehensive system consisting of bee object detection and health evaluation. Additionally, it utilized a combination of visual and audio signals to analyze bee behaviors. An Attention-based Multimodal Neural Network (AMNN) was developed to adaptively focus on key features from each type of signal for accurate bee health assessment. By seamlessly integrating AMNN with image and sound data in a comprehensive bee health monitoring system, this approach provides a more efficient and non-invasive solution for the early detection of bee diseases and the preservation of bee colonies.
+This study introduces a comprehensive system consisting of bee object detection and health evaluation. Additionally, it utilizes a combination of visual and audio signals to analyze bee behaviors. An Attention-based Multimodal Neural Network (AMNN) is developed to adaptively focus on key features from each type of signal for accurate bee health assessment. By seamlessly integrating AMNN with image and sound data in a comprehensive bee health monitoring system, this approach provides a more efficient and non-invasive solution for the early detection of bee diseases and the preservation of bee colonies.
 
 This end-to-end solution includes 
 
