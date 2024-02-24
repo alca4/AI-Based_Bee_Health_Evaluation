@@ -13,30 +13,31 @@ To address this pressing issue, I collected the paired data from three apiaries 
 
 The system is the first to integrate bee health assessment with bee object detection using paired image and audio data in research.
 
-## Bee images object detection
+## Bee Images Object Detection
 
 A YOLOv5 model19 was developed for the localization and cropping of bees in images.
 
-Code can be found in Bee_Image_Object_Detection.ipynb.
+The code can be found in Bee_Image_Object_Detection.ipynb.
 
-## Bee audio object detection
+## Bee Audio Object Detection
 
-Four 1D CNN models were developed to identify bees in audio clips. Each model used a distinct audio feature:
-Mel Spectrogram, MFCC, STFT, or Chromagram. 
+Four 1D CNN models were developed to identify bees in audio clips. Each model used a distinct audio feature: Mel Spectrogram, MFCC, STFT, or Chromagram. 
 
-Code can be found in Bee_Audio_Object_Detection.ipynb.
+The code can be found in Bee_Audio_Object_Detection.ipynb.
 
-## Bee images health assessment
+## Bee Images Health Assessment
 
-The visual bee health evaluation focused on classifying cropped bee images into various health categories. In this
-step, four distinct deep learning models were implemented as outlined, including CNN, Inceptionv3, MobileNetv2 and VGG16.
+The visual bee health evaluation focused on classifying cropped bee images into various health categories. In this step, four distinct deep learning models were implemented as outlined, including CNN, Inceptionv3, MobileNetv2 and VGG16.
 
-Code can be found in Bee_Image_Health_Assessment_CNN.ipynb and Bee_Image_Health_Assessment_Inception_MobileNet.ipynb.
+The code can be found in Bee_Image_Health_Assessment_CNN.ipynb and Bee_Image_Health_Assessment_Inception_MobileNet.ipynb.
 
-## Bee audio health assessment
+## Bee Audio Health Assessment
 
 1D CNN, 2D CNN, LSTM, and VGG16 models were also developed for bee health classification through audio analysis.
+The code can be found in Bee_Audio_Health_Assessment_1D_CNN.ipynb and Bee_Audio_Health_Assessment_2D_CNN_LSTM.ipynb.
 
-Code can be found in Bee_Audio_Health_Assessment_1D_CNN.ipynb and Bee_Audio_Health_Assessment_2D_CNN_LSTM.ipynb.
+## Attention-based Multimodal Neural Network (AMNN)
 
+Previous models for bee health assessment focused solely on either bee images or audio. To address the limitations of these isolated approaches, the AMNN was proposed to merge both bee visual and auditory information. By incorporating an attention mechanism, the model could dynamically focus on crucial features in each modality. This adaptability enabled a comprehensive understanding of bee behavior and improved bee health assessment accuracy.
 
+The code can be found in AMNN.ipynb.
