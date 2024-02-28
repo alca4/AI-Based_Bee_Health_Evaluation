@@ -1,4 +1,4 @@
-# Bee-Project
+# AI-Based Bee Health Evaluation
 
 This repository is the implementation of [Developing an AI-based Integrated System for Bee Health Evaluation](https://arxiv.org/abs/2401.09988) by Andrew Liang.
 
