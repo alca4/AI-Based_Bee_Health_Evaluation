@@ -22,28 +22,28 @@ The system is the first to integrate bee health assessment with bee object detec
 
 A YOLOv5 model was developed for the localization and cropping of bees in images.
 
-The code can be found in Bee_Image_Object_Detection.ipynb.
+The code can be found in Bee_Image_Object_Detection.py.
 
 ## Bee Audio Object Detection
 
 Four 1D CNN models were developed to identify bees in audio clips. Each model used a distinct audio feature: Mel Spectrogram, MFCC, STFT, or Chromagram. 
 
-The code can be found in Bee_Audio_Object_Detection.ipynb.
+The code can be found in Bee_Audio_Object_Detection.py.
 
 ## Bee Images Health Assessment
 
 The visual bee health evaluation focused on classifying cropped bee images into various health categories. In this step, four distinct deep learning models were implemented as outlined, including CNN, Inceptionv3, MobileNetv2 and VGG16.
 
-The code can be found in Bee_Image_Health_Assessment_CNN.ipynb and Bee_Image_Health_Assessment_Inception_MobileNet.ipynb.
+The code can be found in Bee_Image_Health_Assessment_CNN.ipynb and Bee_Image_Health_Assessment_Inception_MobileNet.py.
 
 ## Bee Audio Health Assessment
 
 1D CNN, 2D CNN, LSTM, and VGG16 models were also developed for bee health classification through audio analysis.
 
-The code can be found in Bee_Audio_Health_Assessment_1D_CNN.ipynb and Bee_Audio_Health_Assessment_2D_CNN_LSTM.ipynb.
+The code can be found in Bee_Audio_Health_Assessment_1D_CNN.ipynb and Bee_Audio_Health_Assessment_2D_CNN_LSTM.py.
 
 ## Attention-based Multimodal Neural Network (AMNN)
 
 Previous models for bee health assessment focused solely on either bee images or audio. To address the limitations of these isolated approaches, the AMNN was proposed to merge both bee visual and auditory information. By incorporating an attention mechanism, the model could dynamically focus on crucial features in each modality. This adaptability enabled a comprehensive understanding of bee behavior and improved bee health assessment accuracy.
 
-The code can be found in Bee_Health_VGG16_AMNN.ipynb, including VGG16 for individual visual and audio modality, and combined signals.
+The code can be found in Bee_Health_VGG16_AMNN.py, including VGG16 for individual visual and audio modality, and combined signals.
