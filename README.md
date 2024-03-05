@@ -34,13 +34,13 @@ The code can be found in Bee_Audio_Object_Detection.py.
 
 The visual bee health evaluation focused on classifying cropped bee images into various health categories. In this step, four distinct deep learning models were implemented as outlined, including CNN, Inceptionv3, MobileNetv2 and VGG16.
 
-The code can be found in Bee_Image_Health_Assessment_CNN.ipynb and Bee_Image_Health_Assessment_Inception_MobileNet.py.
+The code can be found in Bee_Image_Health_Assessment_CNN.py and Bee_Image_Health_Assessment_Inception_MobileNet.py.
 
 ## Bee Audio Health Assessment
 
 1D CNN, 2D CNN, LSTM, and VGG16 models were also developed for bee health classification through audio analysis.
 
-The code can be found in Bee_Audio_Health_Assessment_1D_CNN.ipynb and Bee_Audio_Health_Assessment_2D_CNN_LSTM.py.
+The code can be found in Bee_Audio_Health_Assessment_1D_CNN.py and Bee_Audio_Health_Assessment_2D_CNN_LSTM.py.
 
 ## Attention-based Multimodal Neural Network (AMNN)
 
