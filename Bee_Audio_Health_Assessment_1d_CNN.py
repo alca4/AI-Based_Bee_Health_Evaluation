@@ -31,32 +31,25 @@ from tqdm import tqdm
 import pickle
 import IPython.display as ipd  # To play sound in the notebook
 
+# Data Augmentation Functions
+# Adding White Noise.
 def noise(data):
-    """
-    Adding White Noise.
-    """
     noise_amp = 0.05*np.random.uniform()*np.amax(data)   # more noise reduce the value to 0.5
     data = data.astype('float64') + noise_amp * np.random.normal(size=data.shape[0])
     return data
 
+# Random Shifting.
 def shift(data):
-    """
-    Random Shifting.
-    """
     s_range = int(np.random.uniform(low=-5, high = 5)*1000)  #default at 500
     return np.roll(data, s_range)
 
+# Streching the Sound
 def stretch(data, rate=0.8):
-    """
-    Streching the Sound. Note that this expands the dataset slightly
-    """
     data = librosa.effects.time_stretch(data, rate)
     return data
 
+# Pitch Tuning
 def pitch(data, sample_rate=0.8):
-    """
-    Pitch Tuning.
-    """
     bins_per_octave = 12
     pitch_pm = 2
     pitch_change =  pitch_pm * 2*(np.random.uniform())
@@ -65,17 +58,13 @@ def pitch(data, sample_rate=0.8):
                                       bins_per_octave=bins_per_octave)
     return data
 
+# Random Value Change
 def dyn_change(data):
-    """
-    Random Value Change.
-    """
     dyn_change = np.random.uniform(low=-0.5 ,high=7)
     return (data * dyn_change)
 
+# Speed and Pitch Tuning
 def speedNpitch(data):
-    """
-    peed and Pitch Tuning.
-    """
     length_change = np.random.uniform(low=0.8, high = 1)
     speed_fac = 1.2  / length_change # try changing 1.0 to 2.0 ... =D
     tmp = np.interp(np.arange(0,len(data),speed_fac),np.arange(0,len(data)),data)
@@ -84,7 +73,7 @@ def speedNpitch(data):
     data[0:minlen] = tmp[0:minlen]
     return data
 
-# the confusion matrix heat map plot
+# The confusion matrix heat map plot
 def print_confusion_matrix(confusion_matrix, class_names, figsize = (10,7), fontsize=14):
 
     df_cm = pd.DataFrame(
@@ -101,7 +90,7 @@ def print_confusion_matrix(confusion_matrix, class_names, figsize = (10,7), font
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
 
-#Data preparation and processing
+# Data preparation and processing
 
 import pandas as pd
 ref_train = pd.read_csv("./Downloads/Bee_Audio_Health_Merge_3_Split.csv")
@@ -133,6 +122,7 @@ ref_val.columns = ['path', 'labels']
 ref_val.head()
 
 import pandas as pd
+
 ref_test = pd.read_csv("./Downloads/Bee_Audio_Health_Merge_3_Split_Test.csv")
 
 ref_test['sample_name'] = './Downloads/Bee_Audio_Health_Merge_3_Split/TEST/'+ref_test['sample_name'].astype(str)+'.wav'
@@ -140,8 +130,10 @@ ref_test['sample_name'] = './Downloads/Bee_Audio_Health_Merge_3_Split/TEST/'+ref
 ref_test.columns = ['path', 'labels']
 ref_test.head()
 
+import math
+
 def get_stft(fle):
-    import math
+    
     df = pd.DataFrame(columns=['feature'])
     df_noise = pd.DataFrame(columns=['feature'])
     df_speedpitch = pd.DataFrame(columns=['feature'])
@@ -694,7 +686,6 @@ df_mfcc_final_expand_val.shape[1]
 df_mfcc_final_expand.shape, df_mfcc_final_expand_val.shape
 
 #Modeling
-
 import tensorflow as tf
 from keras.layers import Conv2D , MaxPooling2D
 from keras.callbacks import ModelCheckpoint, Callback, EarlyStopping, ReduceLROnPlateau
@@ -759,8 +750,6 @@ batch_size=128
 
 STEP_SIZE_TRAIN= np.ceil(len(X_train)/batch_size)
 STEP_SIZE_VALID= np.ceil(len(X_val)/batch_size)
-
-STEP_SIZE_TRAIN
 
 def modeling(train_dat, val_dat, model_name):
 
