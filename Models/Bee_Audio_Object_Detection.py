@@ -47,7 +47,7 @@ def stretch(data, rate=0.8):
 # Pitch tuning
 def pitch(data, sample_rate=0.8):
     bins_per_octave = 12
-    pitch_pm = 2
+    pitch_pm = 2f
     pitch_change =  pitch_pm * 2*(np.random.uniform())
     data = librosa.effects.pitch_shift(data.astype('float64'),
                                       sample_rate, n_steps=pitch_change,
