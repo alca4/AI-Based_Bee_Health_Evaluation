@@ -1,0 +1,84 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red157\green0\blue210;\red245\green245\blue245;\red0\green0\blue0;
+\red15\green112\blue1;\red144\green1\blue18;\red0\green0\blue255;\red101\green76\blue29;\red0\green0\blue109;
+\red19\green85\blue52;}
+{\*\expandedcolortbl;;\cssrgb\c68627\c0\c85882;\cssrgb\c96863\c96863\c96863;\cssrgb\c0\c0\c0;
+\cssrgb\c0\c50196\c0;\cssrgb\c63922\c8235\c8235;\cssrgb\c0\c0\c100000;\cssrgb\c47451\c36863\c14902;\cssrgb\c0\c6275\c50196;
+\cssrgb\c6667\c40000\c26667;}
+\margl1440\margr1440\vieww20300\viewh14100\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 from\cf0 \strokec4  keras.models \cf2 \strokec2 import\cf0 \strokec4  load_model\cb1 \
+\cf2 \cb3 \strokec2 from\cf0 \strokec4  PIL \cf2 \strokec2 import\cf0 \strokec4  Image\cb1 \
+\cf2 \cb3 \strokec2 import\cf0 \strokec4  numpy \cf2 \strokec2 as\cf0 \strokec4  np\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Load your trained model\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3 model = load_model(\cf6 \strokec6 'bee_health_multimodel.h5'\cf0 \strokec4 )\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Path to the image file\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3 image_file = \cf6 \strokec6 \'91*.jpeg'\cf0 \cb1 \strokec4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Function to preprocess the image\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 def\cf0 \strokec4  \cf8 \strokec8 preprocess_image\cf0 \strokec4 (\cf9 \strokec9 image_file\cf0 \strokec4 , \cf9 \strokec9 target_size\cf0 \strokec4 =(\cf10 \strokec10 64\cf0 \strokec4 , \cf10 \strokec10 64\cf0 \strokec4 )):\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3     \cf5 \strokec5 # Load the image and convert it to grayscale (1 channel) to match the model input\cf0 \cb1 \strokec4 \
+\cb3     img = Image.\cf8 \strokec8 open\cf0 \strokec4 (image_file).convert(\cf6 \strokec6 'L'\cf0 \strokec4 )  \cf5 \strokec5 # Convert to grayscale (L mode is 1 channel)\cf0 \cb1 \strokec4 \
+\
+\cb3     \cf5 \strokec5 # Resize the image to the target size (assume 64x64)\cf0 \cb1 \strokec4 \
+\cb3     img = img.resize(target_size)\cb1 \
+\
+\cb3     \cf5 \strokec5 # Convert the image to a numpy array and flatten it\cf0 \cb1 \strokec4 \
+\cb3     img_array = np.array(img)\cb1 \
+\
+\cb3     \cf5 \strokec5 # Normalize the image (values between 0 and 1)\cf0 \cb1 \strokec4 \
+\cb3     img_array = img_array / \cf10 \strokec10 255.0\cf0 \cb1 \strokec4 \
+\
+\cb3     \cf5 \strokec5 # Flatten the image to match the expected input size (4096,)\cf0 \cb1 \strokec4 \
+\cb3     img_flattened = img_array.flatten().reshape(\cf10 \strokec10 1\cf0 \strokec4 , \cf10 \strokec10 -1\cf0 \strokec4 )  \cf5 \strokec5 # Shape (1, 4096)\cf0 \cb1 \strokec4 \
+\
+\cb3     \cf2 \strokec2 return\cf0 \strokec4  img_flattened\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Preprocess the image to get a 4096-dimensional input\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3 image_input = preprocess_image(image_file)\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Prepare a dummy input since the model expects two inputs\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3 dummy_input = np.zeros((\cf10 \strokec10 1\cf0 \strokec4 , \cf10 \strokec10 4096\cf0 \strokec4 ))  \cf5 \strokec5 # Adjust the size if your model expects different input dimensions\cf0 \cb1 \strokec4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Make the prediction by passing both the image and the dummy input to the model\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3 prediction = model.predict([image_input, dummy_input])\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Define the class labels\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3 classes = [\cf6 \strokec6 'healthy'\cf0 \strokec4 , \cf6 \strokec6 'ant problems'\cf0 \strokec4 , \cf6 \strokec6 'missing queen'\cf0 \strokec4 , \cf6 \strokec6 'pesticide'\cf0 \strokec4 ]\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Output the probability for each class label\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \strokec2 for\cf0 \strokec4  i, label \cf7 \strokec7 in\cf0 \strokec4  \cf8 \strokec8 enumerate\cf0 \strokec4 (classes):\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3     \cf8 \strokec8 print\cf0 \strokec4 (\cf7 \strokec7 f\cf6 \strokec6 "\cf0 \strokec4 \{label\}\cf6 \strokec6 : \cf0 \strokec4 \{prediction[\cf10 \strokec10 0\cf0 \strokec4 ][i]*\cf10 \strokec10 100:.2f\cf0 \strokec4 \}\cf6 \strokec6 %"\cf0 \strokec4 )\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Output the predicted class\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3 predicted_class = np.argmax(prediction)\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3 \strokec8 print\cf0 \strokec4 (\cf7 \strokec7 f\cf6 \strokec6 "Predicted bee health condition: \cf0 \strokec4 \{classes[predicted_class]\}\cf6 \strokec6 "\cf0 \strokec4 )\cb1 \
+\
+}
